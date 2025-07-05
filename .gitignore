@@ -1,0 +1,17 @@
+venv/
+*.pyc
+__pycache__/
+.DS_STORE
+.env
+.aws-sam
+*.egg-info
+
+# pyenv
+.python-version
+
+# application
+eval_results/
+exported_weights/
+temp_training_files/
+training_examples/
+writing_samples/
