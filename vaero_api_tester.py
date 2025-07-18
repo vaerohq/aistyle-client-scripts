@@ -12,11 +12,6 @@ import time
 import json
 import tiktoken
 
-def levenshstein_ratio(text1: str, text2: str) -> float:
-    text1_lower = text1.lower() # don't count capitalization changes as edits
-    text2_lower = text2.lower()
-    return (len(text1_lower) + len(text2_lower) - nltk.edit_distance(text1_lower, text2_lower)) / (len(text1_lower) + len(text2_lower))
-
 def get_multiline_input(prompt="Enter text (end with 'END'):", end_keyword="END"):
     print(prompt)
     lines = []
@@ -370,6 +365,7 @@ def main():
             base_model_service = None
             base_model_endpoint = None
             base_model_api_key = None
+            base_temperature = None
             if mode == "full":
 
                 base_model = input("Select base model (options: 'gpt-4o', 'gpt-4o-mini', 'gpt-4o-2024-08-06', 'gpt-4o-2024-11-20', 'chatgpt-4o-latest', 'gpt-4.1', 'gpt-4.1-2025-04-14', 'o3', 'o4-mini', 'claude-sonnet-4-20250514', 'claude-opus-4-20250514', 'claude-3-5-sonnet-latest', 'claude-3-7-sonnet-latest', 'claude-3-5-haiku-latest', 'deepseek-v3'): ").strip()
@@ -383,8 +379,7 @@ def main():
                 
                 base_model_api_key = input("Enter base model API key (optional, press Enter to skip): ").strip()
 
-            base_temperature = None
-            base_temperature = input("Enter base model temperature (optional, press Enter to skip): ").strip()
+                base_temperature = input("Enter base model temperature (optional, press Enter to skip): ").strip()
 
             include_original = input("Include original text comparison y/n (default is y): ").strip() or "y"
             include_distance = input("Include distance y/n (default is y): ").strip() or "y"
