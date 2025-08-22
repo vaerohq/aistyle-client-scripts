@@ -339,7 +339,7 @@ def main():
                     print(response.headers)
                     print("Response from the server:")
                     print(response.json())
-                    print(f"Fine-tuning jobs fine-tuned model: {response.json()['fine_tuned_model']} {response.json()["status"]}")
+                    print(f"Fine-tuning jobs fine-tuned model: {response.json()['fine_tuned_model']} {response.json()['status']}")
                 except requests.exceptions.RequestException as e:
                     print(f"Error: {e}")
                     if response.content:
@@ -486,7 +486,7 @@ def main():
                     print(response.headers)
                     print("Response from the server:")
                     print(response.json())
-                    print(f"{response.json()["choices"][0]["message"]["content"]}")
+                    print(f"{response.json()['choices'][0]['message']['content']}")
                 except requests.exceptions.RequestException as e:
                     print(f"Error: {e}")
                     if response.content:
