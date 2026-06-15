@@ -368,7 +368,7 @@ def main():
             base_temperature = None
             if mode == "full":
 
-                base_model = input("Select base model (options: 'gpt-4o', 'gpt-4o-mini', 'gpt-4o-2024-08-06', 'gpt-4o-2024-11-20', 'chatgpt-4o-latest', 'gpt-4.1', 'gpt-4.1-2025-04-14', 'o3', 'o4-mini', 'claude-sonnet-4-20250514', 'claude-opus-4-20250514', 'claude-3-5-sonnet-latest', 'claude-3-7-sonnet-latest', 'claude-3-5-haiku-latest', 'deepseek-v3'): ").strip()
+                base_model = input("Select base model (options: 'gpt-4o', 'gpt-5.2', 'gpt-5.4', 'claude-sonnet-4-5', 'claude-sonnet-4-6', 'claude-opus-4-5', 'claude-opus-4-6', 'claude-opus-4-7'): ").strip()
 
                 base_model_service = input("Select base model service (options: 'auto', 'openai', 'azure', 'anthropic', 'fireworks', default is 'auto'): ").strip() or "auto"
 
@@ -385,8 +385,6 @@ def main():
             include_distance = input("Include distance y/n (default is y): ").strip() or "y"
             include_quality = input("Include quality analytics y/n (default is y):").strip() or "y"
             include_rouge = input("Include rouge score y/n (default is y):").strip() or "y"
-
-            humanize = input("Enter humanize level (optional, default is 0, options: 0, 1, 2, 3, 4, press Enter to skip): ").strip()
 
             skip_headings = input("Skip headings y/n (default is n): ").strip() or "n"
             
@@ -463,9 +461,6 @@ def main():
             
             if include_rouge.lower() == 'y':
                 payload["include_rouge"] = True
-            
-            if humanize:
-                payload["humanize"] = int(humanize)
 
             if skip_headings == "y":
                 payload["skip_headings"] = True
